@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Math - Sujit Sir's Tuition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            animation: bgShift 15s infinite alternate;
+        }
+        @keyframes bgShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: url('https://www.transparenttextures.com/patterns/math-background.png');
+            background-size: cover;
+            border-radius: 20px 20px 0 0;
+            animation: fadeIn 1s ease-in;
+        }
+        header img {
+            max-width: 180px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            transition: transform 0.3s;
+        }
+        header img:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .tagline {
+            font-size: 1.5em;
+            color: #fff;
+            margin-top: 10px;
+        }
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+        .content p {
+            font-size: 1.3em;
+            margin: 15px 0;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            animation: slideIn 0.5s ease-in;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .highlight {
+            color: #ffeb3b;
+            font-weight: bold;
+        }
+        .contact-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ff4081;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .contact-btn:hover {
+            background: #f50057;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .form-section {
+            margin: 30px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .form-section h2 {
+            color: #ffeb3b;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .form-section input, .form-section textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px;
+            margin: 10px auto;
+            display: block;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1em;
+        }
+        .form-section button {
+            padding: 12px 30px;
+            background: #00e676;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+        .form-section button:hover {
+            background: #00c853;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 20px 20px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Replace src with your logo URL later -->
+            <img src="https://via.placeholder.com/180" alt="Global Math Logo">
+            <h1>Global Math</h1>
+            <p class="tagline">Math Mastery with Sujit Sir</p>
+        </header>
+
+        <div class="content">
+            <p>Unlock your math potential with <span class="highlight">Sujit Sir</span> and over <span class="highlight">25+ years of experience</span>!</p>
+            <p>For <span class="highlight">8th to 12th graders</span> and special competition prep.</p>
+            <p>Location: <span class="highlight">Delhi, Uttam Nagar & Nearby</span></p>
+            <p>Choose your mode: <span class="highlight">In-Person</span> or <span class="highlight">Online (via Zoom)</span></p>
+            <p>Master <span class="highlight">ALL math topics</span> – from basics to advanced!</p>
+            <p>Contact: <br> Phone/WhatsApp: <span class="highlight">9210804270</span> <br> Alternate: <span class="highlight">8750099800</span></p>
+            <p>Rates: Contact us on any number!</p>
+            <a href="tel:9210804270" class="contact-btn">Book a Session Today!</a>
+        </div>
+
+        <div class="form-section">
+            <h2>Get in Touch</h2>
+            <form id="inquiryForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="tel" id="phone" placeholder="Your Contact Number" required>
+                <input type="tel" id="whatsapp" placeholder="Your WhatsApp Number" required>
+                <textarea id="message" placeholder="Your Message (Optional)" rows="4"></textarea>
+                <button type="submit">Submit Now</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>© 2025 Global Math - Powered by Sujit Sir</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const message = document.getElementById('message').value;
+
+            const smsMessage = `New Inquiry from Global Math:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nWhatsApp: ${whatsapp}\nMessage: ${message || 'None'}`;
+            
+            // Simulated SMS (real SMS needs backend)
+            alert(`Message sent to 8750099800:\n\n${smsMessage}`);
+            console.log(smsMessage);
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+                                                                    </html>
