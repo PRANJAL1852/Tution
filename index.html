@@ -9,16 +9,17 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d, #ffeb3b, #ff4081);
             color: #fff;
             line-height: 1.6;
+            position: relative;
             overflow-x: hidden;
-            animation: bgShift 15s infinite alternate;
+            animation: gradientShift 15s infinite alternate;
         }
-        @keyframes bgShift {
+        @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
@@ -30,85 +31,149 @@
             backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
-        header {
+        .header {
             text-align: center;
             padding: 40px 20px;
-            background: url('https://www.transparenttextures.com/patterns/math-background.png');
-            background-size: cover;
-            border-radius: 20px 20px 0 0;
             animation: fadeIn 1s ease-in;
         }
-        header img {
-            max-width: 180px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            transition: transform 0.3s;
-        }
-        header img:hover {
-            transform: scale(1.1);
-        }
-        h1 {
-            font-size: 3em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .header h1 {
+            font-size: 3.5em;
             color: #ffeb3b;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ff4081, 0 0 30px #00e676;
+            animation: glow 2s infinite alternate;
         }
-        .tagline {
-            font-size: 1.5em;
+        .header p {
+            font-size: 1.8em;
             color: #fff;
             margin-top: 10px;
+            animation: slideIn 1s ease-in;
         }
-        .content {
-            padding: 30px;
-            text-align: center;
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ff4081, 0 0 30px #00e676; }
+            100% { text-shadow: 0 0 20px #ffeb3b, 0 0 30px #ff4081, 0 0 40px #00e676; }
         }
-        .content p {
-            font-size: 1.3em;
-            margin: 15px 0;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            border-radius: 10px;
-            animation: slideIn 0.5s ease-in;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .highlight {
-            color: #ffeb3b;
-            font-weight: bold;
+        .content {
+            text-align: center;
+            padding: 20px;
         }
-        .contact-btn {
+        .content-block {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            animation: floatUp 1s ease-in-out forwards;
+            opacity: 0;
+        }
+        .content-block:nth-child(1) { animation-delay: 0.2s; }
+        .content-block:nth-child(2) { animation-delay: 0.4s; }
+        .content-block:nth-child(3) { animation-delay: 0.6s; }
+        .content-block:nth-child(4) { animation-delay: 0.8s; }
+        @keyframes floatUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn {
             display: inline-block;
             padding: 15px 40px;
-            background: #ff4081;
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.2em;
-            margin-top: 20px;
+            margin: 10px;
             transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: pulse 2s infinite;
         }
-        .contact-btn:hover {
+        .get-started {
+            background: #25d366;
+        }
+        .get-started:hover {
+            background: #128c7e;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #25d366;
+        }
+        .enroll-now {
+            background: #007bff;
+        }
+        .enroll-now:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #007bff;
+        }
+        .alternative {
+            background: #ff4081;
+        }
+        .alternative:hover {
             background: #f50057;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ff4081;
         }
-        .form-section {
-            margin: 30px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.15);
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .highlight {
+            font-size: 1.5em;
+            color: #ff4081;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ff4081;
+        }
+        .blockquote {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-left: 5px solid #ffeb3b;
+            margin: 10px 0;
+            animation: slideInLeft 1s ease-in;
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        #loginBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #ff4081;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+            animation: float 3s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .form-container {
+            display: none;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            animation: popIn 0.5s ease-in-out forwards;
         }
-        .form-section h2 {
-            color: #ffeb3b;
-            font-size: 2em;
-            margin-bottom: 20px;
+        .form-container.show {
+            display: block;
         }
-        .form-section input, .form-section textarea {
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .form-container input, .form-container textarea {
             width: 100%;
             max-width: 500px;
             padding: 12px;
@@ -120,7 +185,7 @@
             color: #333;
             font-size: 1em;
         }
-        .form-section button {
+        .form-container button {
             padding: 12px 30px;
             background: #00e676;
             color: #fff;
@@ -129,58 +194,88 @@
             cursor: pointer;
             font-size: 1.1em;
             transition: all 0.3s;
+            box-shadow: 0 0 10px #00e676;
         }
-        .form-section button:hover {
+        .form-container button:hover {
             background: #00c853;
             transform: scale(1.05);
+            box-shadow: 0 0 20px #00e676;
         }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 0 0 20px 20px;
-            font-size: 1em;
+        .floating-symbol {
+            position: absolute;
+            font-size: 2em;
+            animation: floatAcross 10s infinite linear;
+            opacity: 0.7;
+            z-index: 0;
+        }
+        .floating-symbol:nth-child(1) { top: 10%; left: 0; animation-duration: 15s; }
+        .floating-symbol:nth-child(2) { top: 30%; left: 0; animation-duration: 12s; }
+        .floating-symbol:nth-child(3) { top: 50%; left: 0; animation-duration: 8s; }
+        .floating-symbol:nth-child(4) { top: 70%; left: 0; animation-duration: 10s; }
+        @keyframes floatAcross {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100vw); }
+        }
+        @media (max-width: 600px) {
+            .floating-symbol { display: none; }
+            .btn { display: block; width: 80%; margin: 10px auto; }
+            .header h1 { font-size: 2.5em; }
+            .header p { font-size: 1.2em; }
         }
     </style>
 </head>
 <body>
+    <button id="loginBtn">Login/Register</button>
     <div class="container">
-        <header>
-            <!-- Replace src with your logo URL later -->
-            <img src="https://via.placeholder.com/180" alt="Global Math Logo">
+        <div class="header">
             <h1>Global Math</h1>
-            <p class="tagline">Math Mastery with Sujit Sir</p>
-        </header>
-
+            <p>Math Mastery with Sujit Sir</p>
+        </div>
         <div class="content">
-            <p>Unlock your math potential with <span class="highlight">Sujit Sir</span> and over <span class="highlight">25+ years of experience</span>!</p>
-            <p>For <span class="highlight">8th to 12th graders</span> and special competition prep.</p>
-            <p>Location: <span class="highlight">Delhi, Uttam Nagar & Nearby</span></p>
-            <p>Choose your mode: <span class="highlight">In-Person</span> or <span class="highlight">Online (via Zoom)</span></p>
-            <p>Master <span class="highlight">ALL math topics</span> – from basics to advanced!</p>
-            <p>Contact: <br> Phone/WhatsApp: <span class="highlight">9210804270</span> <br> Alternate: <span class="highlight">8750099800</span></p>
-            <p>Rates: Contact us on any number!</p>
-            <a href="tel:9210804270" class="contact-btn">Book a Session Today!</a>
+            <div class="content-block">
+                <a href="https://wa.me/919210804270" class="btn get-started">Get Started</a>
+                <a href="tel:9210804270" class="btn enroll-now">Enroll Now</a>
+                <a href="tel:8750099800" class="btn alternative">Alternative Contact</a>
+            </div>
+            <div class="content-block">
+                <p>Welcome to Global Math! With over <span class="highlight">25+ years of experience</span>, Sujit Sir offers expert math tuition for students from <span class="highlight">8th to 12th grade</span> and special classes for general competitions. 🌟</p>
+                <p>Location: Delhi, Uttam Nagar & Nearby Areas 📍</p>
+                <p>Classes available both <strong>in-person</strong> and <strong>online (via Zoom)</strong> based on your preference. 🖥️</p>
+                <p>Covers ALL math topics from basics to advanced levels! 🔢📚</p>
+            </div>
+            <div class="content-block">
+                <p class="highlight">Over 500 students have achieved their dream placements! 🎓🚀</p>
+                <div class="blockquote">"Thanks to Sujit Sir, I topped my class in math and got into my dream college!" - Rahul, 12th Grade</div>
+                <div class="blockquote">"The special competition classes helped me win a national math olympiad." - Priya, 10th Grade</div>
+                <p>Join our community of successful students and unlock your math potential! 🌈</p>
+            </div>
+            <div class="content-block">
+                <p>Contact Us:</p>
+                <p>Phone/WhatsApp: <span class="highlight">9210804270</span> 📞</p>
+                <p>Alternative: <span class="highlight">8750099800</span> 📞</p>
+            </div>
+            <div id="formContainer" class="form-container">
+                <h2>Get in Touch</h2>
+                <form id="inquiryForm">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="tel" id="phone" placeholder="Your Contact Number" required>
+                    <input type="tel" id="whatsapp" placeholder="Your WhatsApp Number" required>
+                    <textarea id="message" placeholder="Your Message (Optional)" rows="4"></textarea>
+                    <button type="submit">Submit Now</button>
+                </form>
+            </div>
         </div>
-
-        <div class="form-section">
-            <h2>Get in Touch</h2>
-            <form id="inquiryForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <input type="tel" id="phone" placeholder="Your Contact Number" required>
-                <input type="tel" id="whatsapp" placeholder="Your WhatsApp Number" required>
-                <textarea id="message" placeholder="Your Message (Optional)" rows="4"></textarea>
-                <button type="submit">Submit Now</button>
-            </form>
-        </div>
-
-        <footer>
-            <p>© 2025 Global Math - Powered by Sujit Sir</p>
-        </footer>
     </div>
-
+    <!-- Floating Symbols -->
+    <span class="floating-symbol">🔢</span>
+    <span class="floating-symbol">📚</span>
+    <span class="floating-symbol">📐</span>
+    <span class="floating-symbol">✨</span>
     <script>
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            document.getElementById('formContainer').classList.toggle('show');
+        });
         document.getElementById('inquiryForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
@@ -191,13 +286,11 @@
 
             const smsMessage = `New Inquiry from Global Math:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nWhatsApp: ${whatsapp}\nMessage: ${message || 'None'}`;
             
-            // Simulated SMS (real SMS needs backend)
             alert(`Message sent to 8750099800:\n\n${smsMessage}`);
             console.log(smsMessage);
-
-            // Reset form
             this.reset();
+            document.getElementById('formContainer').classList.remove('show');
         });
     </script>
 </body>
-                                                                    </html>
+    </html>
