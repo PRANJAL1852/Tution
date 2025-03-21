@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Math - Sujit Sir's Tuition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Orbitron', sans-serif;
         }
         body {
             background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d, #ffeb3b, #ff4081);
@@ -24,13 +25,9 @@
             100% { background-position: 100% 50%; }
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 30px auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -40,20 +37,20 @@
             animation: fadeIn 1s ease-in;
         }
         .header h1 {
-            font-size: 3.5em;
+            font-size: 4em;
             color: #ffeb3b;
-            text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ff4081, 0 0 30px #00e676;
+            text-shadow: 0 0 15px #ffeb3b, 0 0 25px #ff4081, 0 0 35px #00e676;
             animation: glow 2s infinite alternate;
         }
         .header p {
-            font-size: 1.8em;
+            font-size: 2em;
             color: #fff;
-            margin-top: 10px;
+            text-shadow: 0 0 10px #fff;
             animation: slideIn 1s ease-in;
         }
         @keyframes glow {
-            0% { text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ff4081, 0 0 30px #00e676; }
-            100% { text-shadow: 0 0 20px #ffeb3b, 0 0 30px #ff4081, 0 0 40px #00e676; }
+            0% { text-shadow: 0 0 15px #ffeb3b, 0 0 25px #ff4081, 0 0 35px #00e676; }
+            100% { text-shadow: 0 0 25px #ffeb3b, 0 0 35px #ff4081, 0 0 45px #00e676; }
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -63,25 +60,47 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .content {
+        .flowchart {
+            position: relative;
             text-align: center;
             padding: 20px;
         }
-        .content-block {
-            margin: 20px 0;
+        .node {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            position: relative;
             animation: floatUp 1s ease-in-out forwards;
             opacity: 0;
+            z-index: 1;
         }
-        .content-block:nth-child(1) { animation-delay: 0.2s; }
-        .content-block:nth-child(2) { animation-delay: 0.4s; }
-        .content-block:nth-child(3) { animation-delay: 0.6s; }
-        .content-block:nth-child(4) { animation-delay: 0.8s; }
+        .node:nth-child(1) { animation-delay: 0.2s; }
+        .node:nth-child(2) { animation-delay: 0.4s; }
+        .node:nth-child(3) { animation-delay: 0.6s; }
+        .node:nth-child(4) { animation-delay: 0.8s; }
         @keyframes floatUp {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        .node h2 {
+            font-size: 2.5em;
+            color: #ffeb3b;
+            text-shadow: 0 0 10px #ffeb3b;
+            margin-bottom: 10px;
+        }
+        .node p {
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 0 0 5px #fff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .highlight {
+            color: #ff4081;
+            text-shadow: 0 0 10px #ff4081;
         }
         .btn {
             display: inline-block;
@@ -89,69 +108,52 @@
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2em;
+            font-size: 1.5em;
             margin: 10px;
             transition: all 0.3s;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            animation: pulse 2s infinite;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            animation: rotate 3s infinite linear;
         }
-        .get-started {
-            background: #25d366;
+        .get-started { background: #25d366; }
+        .get-started:hover { background: #128c7e; transform: scale(1.1) rotate(5deg); box-shadow: 0 0 25px #25d366; }
+        .enroll-now { background: #007bff; }
+        .enroll-now:hover { background: #0056b3; transform: scale(1.1) rotate(-5deg); box-shadow: 0 0 25px #007bff; }
+        .alternative { background: #ff4081; }
+        .alternative:hover { background: #f50057; transform: scale(1.1) rotate(5deg); box-shadow: 0 0 25px #ff4081; }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+            100% { transform: rotate(0deg); }
         }
-        .get-started:hover {
-            background: #128c7e;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #25d366;
+        .flow-line {
+            position: absolute;
+            width: 2px;
+            background: #ffeb3b;
+            animation: flow 2s infinite;
+            z-index: 0;
         }
-        .enroll-now {
-            background: #007bff;
-        }
-        .enroll-now:hover {
-            background: #0056b3;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #007bff;
-        }
-        .alternative {
-            background: #ff4081;
-        }
-        .alternative:hover {
-            background: #f50057;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #ff4081;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        .highlight {
-            font-size: 1.5em;
-            color: #ff4081;
-            font-weight: bold;
-            text-shadow: 0 0 10px #ff4081;
-        }
-        .blockquote {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-left: 5px solid #ffeb3b;
-            margin: 10px 0;
-            animation: slideInLeft 1s ease-in;
-        }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
+        .flow-line:nth-child(1) { top: 150px; left: 50%; height: 100px; }
+        .flow-line:nth-child(2) { top: 300px; left: 50%; height: 150px; }
+        .flow-line:nth-child(3) { top: 500px; left: 50%; height: 200px; }
+        @keyframes flow {
+            0% { opacity: 0.5; transform: scaleY(0); }
+            50% { opacity: 1; transform: scaleY(1); }
+            100% { opacity: 0.5; transform: scaleY(0); }
         }
         #loginBtn {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 10px 20px;
+            padding: 15px 25px;
             background: #ff4081;
             color: #fff;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
+            font-size: 1.2em;
             z-index: 1000;
             animation: float 3s infinite;
+            box-shadow: 0 0 15px #ff4081;
         }
         @keyframes float {
             0% { transform: translateY(0); }
@@ -163,8 +165,10 @@
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            margin: 20px;
+            margin: 20px auto;
+            max-width: 600px;
             animation: popIn 0.5s ease-in-out forwards;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
         .form-container.show {
             display: block;
@@ -173,17 +177,21 @@
             from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
         }
+        .form-container h2 {
+            font-size: 2em;
+            color: #0288d1;
+            text-shadow: 0 0 10px #0288d1;
+        }
         .form-container input, .form-container textarea {
             width: 100%;
-            max-width: 500px;
             padding: 12px;
-            margin: 10px auto;
-            display: block;
+            margin: 10px 0;
             border: none;
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.9);
             color: #333;
-            font-size: 1em;
+            font-size: 1.2em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         .form-container button {
             padding: 12px 30px;
@@ -192,35 +200,37 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 1.1em;
+            font-size: 1.3em;
             transition: all 0.3s;
-            box-shadow: 0 0 10px #00e676;
+            box-shadow: 0 0 15px #00e676;
         }
         .form-container button:hover {
             background: #00c853;
             transform: scale(1.05);
-            box-shadow: 0 0 20px #00e676;
+            box-shadow: 0 0 25px #00e676;
         }
-        .floating-symbol {
+        .floating-particle {
             position: absolute;
-            font-size: 2em;
-            animation: floatAcross 10s infinite linear;
-            opacity: 0.7;
-            z-index: 0;
+            font-size: 1.5em;
+            animation: floatAcross 8s infinite linear;
+            opacity: 0.6;
+            z-index: -1;
         }
-        .floating-symbol:nth-child(1) { top: 10%; left: 0; animation-duration: 15s; }
-        .floating-symbol:nth-child(2) { top: 30%; left: 0; animation-duration: 12s; }
-        .floating-symbol:nth-child(3) { top: 50%; left: 0; animation-duration: 8s; }
-        .floating-symbol:nth-child(4) { top: 70%; left: 0; animation-duration: 10s; }
+        .floating-particle:nth-child(1) { top: 10%; left: 0; animation-duration: 10s; }
+        .floating-particle:nth-child(2) { top: 25%; left: 0; animation-duration: 12s; }
+        .floating-particle:nth-child(3) { top: 40%; left: 0; animation-duration: 9s; }
+        .floating-particle:nth-child(4) { top: 60%; left: 0; animation-duration: 11s; }
         @keyframes floatAcross {
             0% { transform: translateX(-100px); }
             100% { transform: translateX(100vw); }
         }
         @media (max-width: 600px) {
-            .floating-symbol { display: none; }
+            .floating-particle { display: none; }
             .btn { display: block; width: 80%; margin: 10px auto; }
-            .header h1 { font-size: 2.5em; }
-            .header p { font-size: 1.2em; }
+            .header h1 { font-size: 3em; }
+            .header p { font-size: 1.5em; }
+            .node h2 { font-size: 2em; }
+            .node p { font-size: 1.2em; }
         }
     </style>
 </head>
@@ -229,28 +239,31 @@
     <div class="container">
         <div class="header">
             <h1>Global Math</h1>
-            <p>Math Mastery with Sujit Sir</p>
+            <p>Master Math with Sujit Sir</p>
         </div>
-        <div class="content">
-            <div class="content-block">
+        <div class="flowchart">
+            <div class="node">
                 <a href="https://wa.me/919210804270" class="btn get-started">Get Started</a>
                 <a href="tel:9210804270" class="btn enroll-now">Enroll Now</a>
                 <a href="tel:8750099800" class="btn alternative">Alternative Contact</a>
             </div>
-            <div class="content-block">
-                <p>Welcome to Global Math! With over <span class="highlight">25+ years of experience</span>, Sujit Sir offers expert math tuition for students from <span class="highlight">8th to 12th grade</span> and special classes for general competitions. 🌟</p>
-                <p>Location: Delhi, Uttam Nagar & Nearby Areas 📍</p>
-                <p>Classes available both <strong>in-person</strong> and <strong>online (via Zoom)</strong> based on your preference. 🖥️</p>
-                <p>Covers ALL math topics from basics to advanced levels! 🔢📚</p>
+            <div class="flow-line"></div>
+            <div class="node">
+                <h2>About Us</h2>
+                <p>With over <span class="highlight">25+ years of experience</span>, Sujit Sir offers expert math tuition for <span class="highlight">8th to 12th graders</span> and competition prep. 🌟</p>
+                <p>Location: <span class="highlight">Delhi, Uttam Nagar & Nearby</span> 📍</p>
+                <p>Choose <span class="highlight">in-person</span> or <span class="highlight">online (Zoom)</span> classes tailored to you! 🖥️</p>
             </div>
-            <div class="content-block">
-                <p class="highlight">Over 500 students have achieved their dream placements! 🎓🚀</p>
-                <div class="blockquote">"Thanks to Sujit Sir, I topped my class in math and got into my dream college!" - Rahul, 12th Grade</div>
-                <div class="blockquote">"The special competition classes helped me win a national math olympiad." - Priya, 10th Grade</div>
-                <p>Join our community of successful students and unlock your math potential! 🌈</p>
+            <div class="flow-line"></div>
+            <div class="node">
+                <h2>Success Stories</h2>
+                <p><span class="highlight">500+ students</span> have achieved their dream placements with us! 🎓🚀</p>
+                <p>"Sujit Sir helped me top my class and get into my dream college!" - Rahul, 12th Grade</p>
+                <p>"Competition classes led me to a national math olympiad win!" - Priya, 10th Grade</p>
             </div>
-            <div class="content-block">
-                <p>Contact Us:</p>
+            <div class="flow-line"></div>
+            <div class="node">
+                <h2>Contact Us</h2>
                 <p>Phone/WhatsApp: <span class="highlight">9210804270</span> 📞</p>
                 <p>Alternative: <span class="highlight">8750099800</span> 📞</p>
             </div>
@@ -267,11 +280,11 @@
             </div>
         </div>
     </div>
-    <!-- Floating Symbols -->
-    <span class="floating-symbol">🔢</span>
-    <span class="floating-symbol">📚</span>
-    <span class="floating-symbol">📐</span>
-    <span class="floating-symbol">✨</span>
+    <!-- Floating Particles -->
+    <span class="floating-particle">🔢</span>
+    <span class="floating-particle">📚</span>
+    <span class="floating-particle">📐</span>
+    <span class="floating-particle">✨</span>
     <script>
         document.getElementById('loginBtn').addEventListener('click', function() {
             document.getElementById('formContainer').classList.toggle('show');
